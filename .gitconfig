@@ -1,0 +1,45 @@
+# gitconfig - Git configuration file
+#
+# Author: Chris Barry <chris@barry.im>
+#
+# License: Public domain.
+
+[user]
+	email = hsyed@scholastic.com
+	name = Hannan Syed
+
+[push]
+	default = simple
+
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	required = true
+
+[alias]
+        s = status
+        b = branch
+        m = merge
+        d = diff
+        co = checkout
+	cp = cherry-pick
+        ci = commit
+        st = status
+        hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
+        type = cat-file -t
+        dump = cat-file -p
+	r = rebase
+	rc = rebase --continue
+	ra = rebase --abort
+	sb = "!sh -c \"git branch --list --all | grep $1\" -"
+	del = "!sh -c \"git branch -d $1\" -"
+	new = "!sh -c \"git checkout -b $1\" -"
+	sl = "!sh -c \"git log --grep $1\" -"
+	sla = "!sh -c \"git log --all --grep $1\" -"
+	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+	lg2 = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset)%C(bold yellow)%d%C(reset)%n''          %C(white)%s%C(reset) %C(dim white)- %an%C(reset)' --all
+	dD = "!sh -c \"git branch -D $1\" -"
+[core]
+	autocrlf = true
+	excludesfile = C:\\Users\\hannasye\\Documents\\gitignore_global.txt
+
